@@ -19,7 +19,7 @@ angular.module('evelynApp').service('PhotosService', function PhotosService() {
         thumbnail: {
           url: 'http://www.gettyimages.com/CMS/StaticContent/1357941082241_new_banner-700x465.jpg'
         },
-        timestamp: moment().add('days', i).format('MMMM Do YYYY')
+        timestamp: new Date()
       };
     }
     return photos;

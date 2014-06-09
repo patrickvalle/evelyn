@@ -4,7 +4,7 @@ hr { border: none; border-top: 2px dotted #543a24; margin: 0; padding: 0; text-a
 hr:after { content: '§'; display: inline-block; font-size: 1.5em; padding: 0 0.25em; position: relative; top: -0.8em; }
 
 .container { max-width: 100%; } 
-.header h1 { color: #543A24; line-height: 40px; margin: 0; padding: 0 0 20px; }
+.header h1 { color: #543A24; letter-spacing: -1px; line-height: 40px; margin: 0; padding: 0 0 20px; }
 .content { margin: 40px 0; padding: 0 15px;}
 .footer { border-top: 1px solid #e5e5e5; color: #777; padding: 20px 0 0; }
 
