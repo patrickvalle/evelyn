@@ -7,7 +7,8 @@
  * # MainCtrl
  * Controller of the evelynApp
  */
-angular.module('evelynApp').controller('PhotosController', ['$scope', 'PhotosService', function ($scope, $photosService) {
+angular.module('evelynApp').controller('PhotosController', 
+  ['$scope', 'PhotosService', function ($scope, $photosService) {
 
   /**
    * Public properties
@@ -33,7 +34,7 @@ angular.module('evelynApp').controller('PhotosController', ['$scope', 'PhotosSer
 
   $scope.onNextPhoto = function() {
     var index = $scope.selectedPhotoIndex + 1;
-    $scope.hasNextPhoto = hasPhotoAtIndex(index);
+    $scope.hasNextPhoto = hasPhotoAtIndex(index + 1);
     $scope.hasPreviousPhoto = true;
     onPhotoNavigation(index);
   };
@@ -41,7 +42,7 @@ angular.module('evelynApp').controller('PhotosController', ['$scope', 'PhotosSer
   $scope.onPreviousPhoto = function() {
     var index = $scope.selectedPhotoIndex - 1;
     $scope.hasNextPhoto = true;
-    $scope.hasPreviousPhoto = hasPhotoAtIndex(index);
+    $scope.hasPreviousPhoto = hasPhotoAtIndex(index - 1);
     onPhotoNavigation(index);
   };
 
