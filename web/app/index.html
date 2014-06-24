@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <meta name="description" content="">
+    <meta name="author" content="Patrick Valle">
+    <meta name="description" content="For my daughter, Evelyn">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
@@ -25,14 +26,13 @@
       <div class="header">
         <h1 class="text-muted">evelyn elaine valle</h1>
       </div>
-      <hr class="begin" />
       <div class="content" ng-view=""></div>
-      <hr class="end" />
       <div class="footer">
         <p class="pull-right">
           <span class="glyphicon glyphicon-heart"></span> 
           <a href="http://www.patrickvalle.com" target="_blank">dad</a>
         </p>
+        <div class="clearfix"></div>
       </div>
     </div>
 
@@ -63,6 +63,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/momentjs/moment.js"></script>
+    <script src="bower_components/spin.js/spin.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -70,6 +71,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/PhotosController.js"></script>
     <script src="scripts/services/PhotosService.js"></script>
+    <script src="scripts/directives/spinner.js"></script>
     <!-- endbuild -->
 </body>
 </html>

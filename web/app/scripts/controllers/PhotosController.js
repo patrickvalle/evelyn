@@ -8,7 +8,7 @@
  * Controller of the evelynApp
  */
 angular.module('evelynApp').controller('PhotosController', 
-  ['$scope', 'PhotosService', function ($scope, $photosService) {
+    ['$scope', 'PhotosService', function ($scope, $photosService) {
 
   /**
    * Public properties
@@ -19,7 +19,8 @@ angular.module('evelynApp').controller('PhotosController',
   $scope.selectedPhotoIndex = -1;
   $scope.hasPreviousPhoto = false;
   $scope.hasNextPhoto = false;
-  $scope.dateFormat = 'MMMM d, yyyy';
+  $scope.shortDateFormat = 'MM/dd/yyyy';
+  $scope.longDateFormat = 'EEEE, MMMM d, yyyy';
 
   /**
    * Public API
@@ -51,7 +52,9 @@ angular.module('evelynApp').controller('PhotosController',
    */
 
   var initialize = function() {
-    $scope.photos = $photosService.list();
+    $photosService.list(function(photos) {
+      $scope.photos = photos;
+    });
   };
 
   var hasPhotoAtIndex = function(index) {
