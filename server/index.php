@@ -16,8 +16,8 @@ $database = new medoo(array(
   'database_type' => 'mysql',
   'database_name' => 'evelynvalle',
   'server' => 'database.evelynvalle.com',
-  'username' => 'evelynvalle',
-  'password' => 'lightupmylife'
+  'username' => 'user',
+  'password' => 'pass'
 ));
 
 // Initialize service(s)
