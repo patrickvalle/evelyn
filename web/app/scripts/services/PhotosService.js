@@ -7,14 +7,28 @@
  * # Photosservice
  * Service in the evelynApp.
  */
-angular.module('evelynApp').service('PhotosService', ['$http', function PhotosService($http) {
-
-  var apiUrl = '../../server/photos';
+angular.module('evelynApp').service('PhotosService', 
+    ['$http', 'API_ROOT', function PhotosService($http, API_ROOT) {
 
   var list = function(onSuccess, onFailure) {
     $http({ 
       method: 'GET', 
-      url: apiUrl
+      url: API_ROOT + '/photos'
+    }).success(function (data) {
+      if(onSuccess) {
+        onSuccess(data);
+      }
+    }).error(function (data) {
+      if(onFailure) {
+        onFailure(data);
+      }
+    });
+  };
+
+  var loadPhoto = function(atUrl, onSuccess, onFailure) {
+    $http({ 
+      method: 'GET', 
+      url: atUrl,
     }).success(function (data) {
       if(onSuccess) {
         onSuccess(data);
@@ -27,7 +41,8 @@ angular.module('evelynApp').service('PhotosService', ['$http', function PhotosSe
   };
 
   return {
-    list: list
+    list: list,
+    loadPhoto: loadPhoto
   };
 
 }]);

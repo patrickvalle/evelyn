@@ -17,3 +17,6 @@ a:hover { color: #74ae6b; }
 .photos .photo:hover h4 { display: block; }
 .photos .photo h4 span { background: rgb(0, 0, 0); background: rgba(0, 0, 0, 0.7); color: white; font-weight: bold; font-size: 24px; padding: 10px; }
 .photos .photo h4 span.spacer { padding: 0 5px; }
+
+.modal .photo.dimmed { opacity: 0.3; filter: alpha(opacity=30); }
+.modal .spinner-container { position: absolute; left: 50%; top: 50%; }

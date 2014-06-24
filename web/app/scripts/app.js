@@ -15,7 +15,13 @@ angular.module('evelynApp', [
   'ngRoute',
   'ngSanitize',
   'ngTouch'
-]).config(function ($routeProvider) {
+])
+
+// Constant(s)
+.constant('API_ROOT', 'http://localhost/Evelyn/server')
+
+// Routing config
+.config(function ($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: 'views/photos.html',
     controller: 'PhotosController'

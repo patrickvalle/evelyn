@@ -8,7 +8,7 @@
  * Controller of the evelynApp
  */
 angular.module('evelynApp').controller('PhotosController', 
-    ['$scope', 'PhotosService', function ($scope, $photosService) {
+    ['$scope', 'PhotosService', 'API_ROOT', function ($scope, $photosService, API_ROOT) {
 
   /**
    * Public properties
@@ -21,30 +21,34 @@ angular.module('evelynApp').controller('PhotosController',
   $scope.hasNextPhoto = false;
   $scope.shortDateFormat = 'MM/dd/yyyy';
   $scope.longDateFormat = 'EEEE, MMMM d, yyyy';
+  $scope.photosPath = API_ROOT + '/assets/images/photos';
+  $scope.isLoading = true;
 
   /**
    * Public API
    */
 
   $scope.onPhotoSelected = function(index) {
-    $scope.selectedPhoto = $scope.photos[index];
-    $scope.selectedPhotoIndex = index;
-    $scope.hasNextPhoto = hasPhotoAtIndex(index + 1);
-    $scope.hasPreviousPhoto = hasPhotoAtIndex(index - 1);
+    $scope.isLoading = true;
+    var selectedPhoto = $scope.photos[index];
+    var photoUrl = $scope.photosPath + '/' + selectedPhoto.image;
+    $photosService.loadPhoto(photoUrl, function() {
+      $scope.selectedPhoto = selectedPhoto;
+      $scope.selectedPhotoIndex = index;
+      $scope.hasNextPhoto = hasPhotoAtIndex(index + 1);
+      $scope.hasPreviousPhoto = hasPhotoAtIndex(index - 1);
+      $scope.isLoading = false;
+    });
   };
 
   $scope.onNextPhoto = function() {
     var index = $scope.selectedPhotoIndex + 1;
-    $scope.hasNextPhoto = hasPhotoAtIndex(index + 1);
-    $scope.hasPreviousPhoto = true;
-    onPhotoNavigation(index);
+    $scope.onPhotoSelected(index);
   };
 
   $scope.onPreviousPhoto = function() {
     var index = $scope.selectedPhotoIndex - 1;
-    $scope.hasNextPhoto = true;
-    $scope.hasPreviousPhoto = hasPhotoAtIndex(index - 1);
-    onPhotoNavigation(index);
+    $scope.onPhotoSelected(index);
   };
 
   /**
@@ -60,14 +64,6 @@ angular.module('evelynApp').controller('PhotosController',
   var hasPhotoAtIndex = function(index) {
     var photo = $scope.photos[index];
     return photo ? true : false;
-  };
-
-  var onPhotoNavigation = function(index) {
-    var photo = $scope.photos[index];
-    if(photo) {
-      $scope.selectedPhoto = photo;
-      $scope.selectedPhotoIndex = index;
-    }
   };
 
   // Call initialize() when this controller is loaded

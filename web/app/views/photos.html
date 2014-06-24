@@ -1,7 +1,7 @@
 <!-- Photos -->
 <div class="photos row">
   <div class="photo col-md-3 col-sm-4 col-xs-6" data-toggle="modal" data-target=".modal" ng-repeat="photo in photos">
-    <img class="img-responsive" src="../../server/assets/images/photos/{{photo.thumbnail}}" ng-click="onPhotoSelected($index)" />
+    <img class="img-responsive" src="{{photosPath}}/{{photo.thumbnail}}" ng-click="onPhotoSelected($index)" />
     <h4 ng-click="onPhotoSelected($index)"><span>{{photo.created | date: shortDateFormat}}</span></h4>
   </div>
   <div class="clearfix"></div>
@@ -16,9 +16,9 @@
         <h4 class="modal-title">{{selectedPhoto.created | date: longDateFormat}}</h4>
       </div>
       <div class="modal-body row">
-        <img src="../../server/assets/images/photos/{{selectedPhoto.image}}" class="col-md-12" />
-        <div ng-init="config={lines:12}" class="col-md-12">
-          <div spin="config"></div>
+        <img src="{{photosPath}}/{{selectedPhoto.image}}" class="photo img-responsive col-md-12" ng-class="isLoading ? 'dimmed' : ''" />
+        <div class="spinner-container" ng-show="isLoading">
+          <div spinner="{lines: 9, length: 40, width: 30, radius: 0, corners: 1, speed: 1.5, trail: 100}"></div>
         </div>
       </div>
       <div class="modal-footer">
