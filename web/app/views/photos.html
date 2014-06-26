@@ -1,6 +1,6 @@
 <!-- Photos -->
 <div class="photos row">
-  <div class="photo col-md-3 col-sm-4 col-xs-6" data-toggle="modal" data-target=".modal" ng-repeat="photo in photos">
+  <div class="photo col-lg-3 col-md-4 col-sm-4 col-xs-6" data-toggle="modal" data-target=".modal" ng-repeat="photo in photos">
     <img class="img-responsive" src="{{photosPath}}/{{photo.thumbnail}}" ng-click="onPhotoSelected($index)" />
     <h4 ng-click="onPhotoSelected($index)"><span>{{photo.created | date: shortDateFormat}}</span></h4>
   </div>
@@ -15,10 +15,11 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">{{selectedPhoto.created | date: longDateFormat}}</h4>
       </div>
-      <div class="modal-body row">
-        <img src="{{photosPath}}/{{selectedPhoto.image}}" class="photo img-responsive col-md-12" ng-class="isLoading ? 'dimmed' : ''" />
+      <div class="modal-body ">
+        <img src="{{photosPath}}/{{selectedPhoto.image}}" class="photo img-responsive" ng-class="isLoading ? 'dimmed' : ''" />
         <div class="spinner-container" ng-show="isLoading">
-          <div spinner="{lines: 9, length: 40, width: 30, radius: 0, corners: 1, speed: 1.5, trail: 100}"></div>
+          <i class="spinner fa fa-star-o fa-spin"></i>
+          <i class="spinner-2 fa fa-star fa-spin"></i>
         </div>
       </div>
       <div class="modal-footer">
