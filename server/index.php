@@ -1,7 +1,9 @@
 <?php
 
-// Import(s)
+// Global config
 require 'config.php';
+
+// Import(s)
 require 'vendor/autoload.php';
 require 'scripts/services/PhotosService.php';
 require 'scripts/controllers/PhotosController.php';

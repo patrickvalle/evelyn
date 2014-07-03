@@ -20,6 +20,9 @@ angular.module('evelynApp', [
 // Constant(s)
 .constant('API_ROOT', 'http://localhost/Evelyn/server')
 
+// Vendor dependencies
+.constant('moment', window.moment)
+
 // Routing config
 .config(function ($routeProvider) {
   $routeProvider.when('/', {

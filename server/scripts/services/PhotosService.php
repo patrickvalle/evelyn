@@ -14,7 +14,9 @@
    */
   public function listPhotos() {
     $photos = array();
-    $data = $this->database->select('photos', '*');
+    $data = $this->database->select('photos', '*', [
+      'ORDER' => 'created DESC'
+    ]);
     foreach($data as $photo) {
       $photo['created'] = strtotime($photo['created']) * 1000;
       array_push($photos, $photo);
