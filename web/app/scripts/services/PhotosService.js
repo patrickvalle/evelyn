@@ -7,8 +7,8 @@
  * # Photosservice
  * Service in the evelynApp.
  */
-angular.module('evelynApp').service('PhotosService', 
-    ['$http', 'API_ROOT', 
+angular.module('evelynApp').service('PhotosService', [
+    '$http', 'API_ROOT', 
     function PhotosService($http, API_ROOT) {
 
   var list = function(onSuccess, onFailure) {

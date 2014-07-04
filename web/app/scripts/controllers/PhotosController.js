@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the evelynApp
  */
-angular.module('evelynApp').controller('PhotosController', 
-    ['$scope', 'PhotosService', 'moment', 'API_ROOT', 
+angular.module('evelynApp').controller('PhotosController', [
+    '$scope', 'PhotosService', 'moment', 'API_ROOT', 
     function ($scope, $photosService, moment, API_ROOT) {
 
   /**
@@ -16,7 +16,7 @@ angular.module('evelynApp').controller('PhotosController',
    */
 
   $scope.photos = [];
-  $scope.selectedPhoto = { image: 'clear.gif' };
+  $scope.selectedPhoto = { image: 'image-placeholder.gif' };
   $scope.calculatedAge = '';
   $scope.selectedPhotoIndex = -1;
   $scope.hasPreviousPhoto = false;
@@ -31,7 +31,6 @@ angular.module('evelynApp').controller('PhotosController',
    */
 
    var birthDateMoment = moment('06-02-2014', 'MM-DD-YYYY');
-
 
   /**
    * Public API

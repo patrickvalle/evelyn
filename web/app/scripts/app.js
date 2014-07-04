@@ -21,6 +21,7 @@ angular.module('evelynApp', [
 .constant('API_ROOT', 'http://localhost/Evelyn/server')
 
 // Vendor dependencies
+.constant('jQuery', window.jQuery)
 .constant('moment', window.moment)
 
 // Routing config

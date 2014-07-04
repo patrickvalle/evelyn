@@ -1,7 +1,7 @@
 <!-- Photos -->
 <div class="photos row">
   <div class="photo col-lg-3 col-md-4 col-sm-4 col-xs-6" data-toggle="modal" data-target=".modal" ng-repeat="photo in photos">
-    <img class="img-responsive" src="{{photosPath}}/{{photo.thumbnail}}" ng-click="onPhotoSelected($index)" />
+    <img class="img-responsive" src="../images/thumbnail-placeholder.gif" ng-click="onPhotoSelected($index)" unveils-as="{{photosPath}}/{{photo.thumbnail}}" unveils-as-options="{ 'buffer': 500, 'index': {{$index}}, 'showFirst': 20 }" />
     <h4 ng-click="onPhotoSelected($index)"><span>{{photo.created | date: shortDateFormat}}</span></h4>
   </div>
   <div class="clearfix"></div>
@@ -15,7 +15,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title">{{selectedPhoto.created | date: longDateFormat}} ({{calculatedAge}} old)</h4>
       </div>
-      <div class="modal-body ">
+      <div class="modal-body">
         <img src="{{photosPath}}/{{selectedPhoto.image}}" class="photo img-responsive" ng-class="isLoading ? 'dimmed' : ''" />
         <div class="spinner-container" ng-show="isLoading">
           <i class="spinner fa fa-star-o fa-spin"></i>
